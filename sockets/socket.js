@@ -14,6 +14,10 @@ io.on('connection', client => {
     const lastTicket = ticketControl.getLastTicket()
     callback(lastTicket)
   })
+  client.on('attendNextTicket', (data, callback) => {
+    const ticket = ticketControl.attendNextTicket()
+    callback(ticket)
+  })
 
   client.on('generateNewTicket', (data, callback) => {
     console.log('Generando nuevo ticket')

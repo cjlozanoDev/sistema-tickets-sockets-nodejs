@@ -23,6 +23,15 @@ class TicketControl {
   getLastTicket() {
     return `Ticket ${this.lastTicket}`
   }
+
+  attendNextTicket() {
+    if (this.tickets.length <= 0) {
+      return ''
+    } else {
+      const ticketAttend = this.tickets.shift()
+      return ticketAttend.number
+    }
+  }
 }
 module.exports = {
   TicketControl
