@@ -24,11 +24,17 @@ class TicketControl {
     return `Ticket ${this.lastTicket}`
   }
 
-  attendNextTicket() {
+  getLastFourTickets() {
+    return this.lastFourTickets;
+  }
+
+  attendNextTicket(numberDesktop) {
     if (this.tickets.length <= 0) {
       return ''
     } else {
       const ticketAttend = this.tickets.shift()
+      const newTicket = new Ticket(ticketAttend.number, numberDesktop)
+      this.lastFourTickets.unshift(newTicket)
       return ticketAttend.number
     }
   }

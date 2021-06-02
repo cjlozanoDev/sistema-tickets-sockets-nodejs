@@ -5,7 +5,7 @@ const httpServer = require('http').createServer(app)
 const port = process.env.PORT || 3000
 module.exports.io = require('socket.io')(httpServer, {
   cors: {
-    origin: ["http://localhost:8080"],
+    origin: true,
     credentials: true
   },
   allowEIO3: true
